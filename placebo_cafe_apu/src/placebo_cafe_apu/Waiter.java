@@ -36,6 +36,6 @@ public class Waiter extends Server {
         });
         washDrinkingApparatus("");
 
-        TextWrapper.bigWrap("WAITER", "Waiter " + id + " left.");
+        TextWrapper.bigWrap("WAITER", "Waiter " + name + " left.");
     }
 }

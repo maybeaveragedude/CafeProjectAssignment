@@ -28,7 +28,7 @@ public class Owner extends Server {
                                 clockRef.wait();
                                 TextWrapper.bigWrap("OWNER", "Closing time");
                         } catch (InterruptedException e) {
-                                
+
                                 e.printStackTrace();
                         }
                 }
@@ -37,7 +37,7 @@ public class Owner extends Server {
                         waiterRef.join();
                 } catch (InterruptedException e) {
                 }
-
+                TextWrapper.bigWrap("OWNER", "Owner " + name + " left.");
                 TextWrapper.bigWrap("OWNER", "Cafe is CLOSED");
                 System.out.println("\nSTATISTICS");
                 System.out.println("----------");
