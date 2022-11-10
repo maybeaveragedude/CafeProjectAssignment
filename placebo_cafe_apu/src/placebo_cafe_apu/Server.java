@@ -13,7 +13,6 @@ public class Server extends Thread {
     String role;
     ReentrantLock orderLock = new ReentrantLock(true);
     private Table tableRef = null;
-    private MainCafe cafeRef = null;
     private Clock clockRef = null;
     private Cupboard cupboardRef = null;
     private Statistics statsRef = null;
@@ -33,7 +32,7 @@ public class Server extends Thread {
         this.id = id;
         this.name = name;
         this.tableRef = tableRef;
-        this.cafeRef = cafeRef;
+        // this.cafeRef = cafeRef;
         this.clockRef = clockRef;
         this.role = role;
         this.juiceTap = juiceTap;
