@@ -107,7 +107,6 @@ public class Customer extends Thread {
             statsRef.addWaitingTime(endWaitingTime.get() - startWaitingTime.get());
             endElapsedTime.set(System.currentTimeMillis());
 
-
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -139,7 +138,7 @@ public class Customer extends Thread {
 
             } catch (InterruptedException e) {
                 TextWrapper.bigWrap("CUSTOMER", "Customer " + id + " wanted to leave the queue but was interrupted");
-   
+
                 e.printStackTrace();
             }
         }
@@ -191,19 +190,19 @@ public class Customer extends Thread {
                                 if (serverRef[0].orderLock.tryLock()) {
                                     ordered = true;
                                     TextWrapper.compactWrap("TAKE ORDER",
-                                            "Server " + serverRef[0].name + " is taking order from customer "
+                                            serverRef[0].role + ": " + serverRef[0].name
+                                                    + " is taking order from customer "
                                                     + this.id);
                                     endWaitingTime.set(System.currentTimeMillis());
                                     statsRef.addWaitingTime(endWaitingTime.get() - startWaitingTime.get());
                                     placeOrder(serverRef[0]);
                                     seated = true;
 
-
-
                                 } else if (serverRef[1].orderLock.tryLock()) {
                                     ordered = true;
                                     TextWrapper.compactWrap("TAKE ORDER",
-                                            "Server " + serverRef[1].name + " is taking order from customer "
+                                            serverRef[1].role + ": " + serverRef[1].name
+                                                    + " is taking order from customer "
                                                     + this.id);
                                     placeOrder(serverRef[1]);
                                     seated = true;
@@ -216,7 +215,6 @@ public class Customer extends Thread {
                             waitCount++;
                             Thread.sleep(100);
                         } while (!ordered && waitCount < MAX_waitCount);
-
 
                     } catch (Exception e) {
                         tableRef.leaveSeat(this);
