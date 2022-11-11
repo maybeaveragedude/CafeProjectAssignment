@@ -415,12 +415,9 @@ public class Server extends Thread {
         } while (!useTap);
 
         if (useTap) {
-            // System.out.println("Hello there");
             if (cupboardRef.no_glasses.availablePermits() < 1) {
-                // System.out.println("General Kenobi");
                 washDrinkingApparatus("glass");
             }
-            // System.out.println("something");
             takeGlass();
 
             returnJuiceTap();

@@ -9,7 +9,7 @@ public class Clock extends Thread {
 
     // constructor
     Clock() {
-    
+
     };
 
     @Override
@@ -36,7 +36,6 @@ public class Clock extends Thread {
             } catch (Exception e) {
             }
         ;
-
         // notify closing
         synchronized (this) {
             this.notifyAll();
